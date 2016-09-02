@@ -29,8 +29,6 @@ public class AutomationManager {
 
     private JeroMQClient mClient;
 
-    public Touch touch;
-
     public AutomationManager(Context context) {
         mClient = new JeroMQClient();
         startCommand = "export CLASSPATH=" + context.getApplicationInfo().sourceDir + " && " +
@@ -39,7 +37,6 @@ public class AutomationManager {
                 Daemon.class.getName()
                 + " &"   // Run in background
                 ;
-        touch = new Touch();
         Log.d(TAG, "startCommand: " + startCommand);
     }
 
@@ -112,17 +109,15 @@ public class AutomationManager {
         mClient.stopServer();
     }
 
-    public class Touch {
-        public String down(float x, float y, int id) {
-            return sendToServer(CODE_TOUCH_DOWN + " " + x + " " + y + " " + id);
-        }
+    public String touchDown(float x, float y, int id) {
+        return sendToServer(CODE_TOUCH_DOWN + " " + x + " " + y + " " + id);
+    }
 
-        public String move(float x, float y, int id) {
-            return sendToServer(CODE_TOUCH_MOVE + " " + x + " " + y + " " + id);
-        }
+    public String touchMove(float x, float y, int id) {
+        return sendToServer(CODE_TOUCH_MOVE + " " + x + " " + y + " " + id);
+    }
 
-        public String up(float x, float y, int id) {
-            return sendToServer(CODE_TOUCH_UP + " " + x + " " + y + " " + id);
-        }
+    public String touchUp(float x, float y, int id) {
+        return sendToServer(CODE_TOUCH_UP + " " + x + " " + y + " " + id);
     }
 }

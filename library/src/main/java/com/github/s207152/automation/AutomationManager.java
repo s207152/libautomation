@@ -29,6 +29,8 @@ public class AutomationManager {
 
     private JeroMQClient mClient;
 
+    public Touch Touch;
+
     public AutomationManager(Context context) {
         mClient = new JeroMQClient();
         startCommand = "export CLASSPATH=" + context.getApplicationInfo().sourceDir + " && " +
@@ -37,6 +39,7 @@ public class AutomationManager {
                 Daemon.class.getName()
                 + " &"   // Run in background
                 ;
+        Touch = new Touch();
         Log.d(TAG, "startCommand: " + startCommand);
     }
 

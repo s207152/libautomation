@@ -21,10 +21,6 @@ android {
     }
 }
 
-repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-}
-
 dependencies {
     provided fileTree(dir: 'android-framework-jar', include: ['*.jar'])
     compile fileTree(dir: 'libs', include: ['*.jar'])

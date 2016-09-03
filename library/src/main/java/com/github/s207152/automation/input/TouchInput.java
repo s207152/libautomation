@@ -47,7 +47,8 @@ public class TouchInput {
 
         pointers.addPointer(x, y, id);
 
-        long when = SystemClock.uptimeMillis();        event =
+        long when = SystemClock.uptimeMillis();
+        event =
                 MotionEvent.obtain(when, when, getPointerAction(MotionEvent.ACTION_DOWN, id),
                         pointers.getSize(), pointers.getPointerProperties(), pointers.getPointerCoords(),
                         0,  // metastate
@@ -234,10 +235,9 @@ public class TouchInput {
 
             return prop;
         }
-
-
     }
-//
+
+    // test functions.
 //    public void testInput() {
 //        sleep(5000);
 //
